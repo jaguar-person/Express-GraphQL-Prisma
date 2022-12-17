@@ -30,7 +30,12 @@ export const doneResolvers = {
     },
   },
   Mutation: {
-    createDone: async (_obj: any, _args: any, context: ContextType, _info: any) => {
+    createDone: async (
+      _obj: any,
+      _args: any,
+      context: ContextType,
+      _info: any
+    ) => {
       const done = await context.prisma.done.create({
         data: {
           title: _args.title,
