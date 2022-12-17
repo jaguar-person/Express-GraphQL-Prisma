@@ -1,8 +1,8 @@
 import { gql } from "apollo-server";
+import { sign } from "jsonwebtoken";
+import { hash, compare } from "bcryptjs";
 import { ContextType } from "./context";
 import { APP_SECRET } from "../utils/auth";
-import { hash, compare } from "bcryptjs";
-import { sign } from "jsonwebtoken";
 
 export const userTypeDefs = gql`
   type User {
@@ -65,7 +65,6 @@ export const userResolvers = {
         user,
       };
     },
-
     login: async (
       parent: unknown,
       args: { email: string; password: string },

@@ -1,6 +1,6 @@
 import { PrismaClient } from "@prisma/client";
-import { decodeAuthHeader, AuthTokenPayload } from "../utils/auth";   
 import { Request } from "express";  
+import { decodeAuthHeader } from "../utils/auth";   
 
 const prisma = new PrismaClient();
 export interface ContextType {
