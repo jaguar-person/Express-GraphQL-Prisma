@@ -1,0 +1,19 @@
+My requirements
+1. CRUD feature ... Complete
+2. Auth feature
+3. Add the priority(urgent, normal, low) to the todo- list. 
+  The thing at the top of the list is the highest priority, 
+  and as you go down the list, you get lower and lower priority.
+4. Easy archiving. When I finish something, ...Complete
+  I want it to drop off my list, but I also want it stored somewhere so that 
+  I can see everything I’ve completed. That “done” list can be pretty helpful at times.
+5. Use Prisma to connect with Database(PostgreSQL) ...Complete
+6. Test the todo app with Postman
+7. Virtual Hosting (extra)
+
+Tech stack
+Node/Express
+PostgreSQL
+Prisma
+Postman
+
