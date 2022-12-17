@@ -10,31 +10,31 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model User{
-  id Int @id @default(autoincrement())
-  email String @unique
-  name String
+model User {
+  id       Int    @id @default(autoincrement())
+  email    String @unique
+  name     String
   password String
-  role Role @default(low)
-  todos Todo[]
+  role     Role   @default(low)
+  todos    Todo[]
 }
 
-model Todo{
-  id Int @id @default(autoincrement()) @unique
-  title String 
+model Todo {
+  id          Int      @id @unique @default(autoincrement())
+  title       String
   description String
-  user User @relation(fields: [userId], references: [id])
-  userId Int 
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
-  finished Boolean @default(false)
+  user        User     @relation(fields: [userId], references: [id])
+  userId      Int
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  finished    Boolean  @default(false)
 }
 
-model Done{
-  id Int @id @default(autoincrement()) @unique
-  title String 
+model Done {
+  id          Int    @id @unique @default(autoincrement())
+  title       String
   description String
-  userId Int
+  userId      Int
 }
 
 enum Role {

@@ -44,7 +44,12 @@ export const userTypeDefs = gql`
 
 export const userResolvers = {
   Query: {
-    getUsers: async (_obj: any, _args: any, context: ContextType, _info: any) => {
+    getUsers: async (
+      _obj: any,
+      _args: any,
+      context: ContextType,
+      _info: any
+    ) => {
       const users = await context.prisma.user.findMany();
       return users;
     },
@@ -86,7 +91,12 @@ export const userResolvers = {
         user,
       };
     },
-    addRole: async (_obj: any, _args: any, context: ContextType, _info: any) => {
+    addRole: async (
+      _obj: any,
+      _args: any,
+      context: ContextType,
+      _info: any
+    ) => {
       const user = await context.prisma.user.update({
         where: {
           id: _args.id,
