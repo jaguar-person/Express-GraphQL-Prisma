@@ -10,14 +10,9 @@ export const userTypeDefs = gql`
     email: String!
     name: String!
     password: String!
-    role: Role!
   }
 
-  enum Role {
-    urgent
-    normal
-    low
-  }
+
 
   type AuthPayload {
     token: String!
@@ -35,10 +30,8 @@ export const userTypeDefs = gql`
       email: String!
       name: String!
       password: String!
-      role: Role
     ): User!
     deleteUser(id: Int!): User!
-    addRole(id: Int!, role: Role): User!
   }
 `;
 
@@ -54,6 +47,7 @@ export const userResolvers = {
       return users;
     },
   },
+  
   Mutation: {
     signup: async (
       parent: unknown,
@@ -70,6 +64,7 @@ export const userResolvers = {
         user,
       };
     },
+
     login: async (
       parent: unknown,
       args: { email: string; password: string },
@@ -90,22 +85,6 @@ export const userResolvers = {
         token,
         user,
       };
-    },
-    addRole: async (
-      _obj: any,
-      _args: any,
-      context: ContextType,
-      _info: any
-    ) => {
-      const user = await context.prisma.user.update({
-        where: {
-          id: _args.id,
-        },
-        data: {
-          role: _args.role,
-        },
-      });
-      return user;
     },
   },
 };

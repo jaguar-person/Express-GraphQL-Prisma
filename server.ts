@@ -2,7 +2,6 @@ import express from "express";
 import { graphqlHTTP } from "express-graphql";
 import { context } from "./graphql/context";
 import { schema } from "./graphql/index";
-
 import { Request } from "express";
 
 const app = express();
