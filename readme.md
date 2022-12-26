@@ -6,7 +6,7 @@ This project is developed using Express + Prisma + GraphQL and implemented Auth.
 
 ```
 npx prisma generate
-npx prisma migrate
+npx prisma migrate dev
 
 npm run server
 ```
